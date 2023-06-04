@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
         mc:Ignorable="d"
-        Title="AddOrEditPeopleWindow" Height="450" Width="800">
-    <Grid>
+        Title="AddOrEditPeopleWindow" Height="450" Width="600">
+    <Grid  Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.6*"/>
@@ -14,7 +14,8 @@
 
         <ListView
             ItemsSource="{Binding GetPeoples, UpdateSourceTrigger=PropertyChanged}"
-            SelectedItem="{Binding SelectedPeople, UpdateSourceTrigger=PropertyChanged}">
+            SelectedItem="{Binding SelectedPeople, UpdateSourceTrigger=PropertyChanged}"
+            Background="AliceBlue">
             <ListView.ItemContainerStyle>
                 <Style
                     TargetType="{x:Type ListViewItem}">
@@ -36,11 +37,11 @@
 
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Gray" TargetName="Border"/>
+                                        <Setter Property="Background" Value="green" TargetName="Border"/>
                                     </Trigger>
 
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="LightGray" TargetName="Border"/>
+                                        <Setter Property="Background" Value="Lightgreen" TargetName="Border"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -52,20 +53,56 @@
 
         <StackPanel
             Grid.Column="1">
+            <TextBlock 
+                Text="Фамилия:"
+                Width="200"
+                Margin="0,4,0,0"/>
             <TextBox
-                Text="{Binding People.Surname, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding People.Surname, UpdateSourceTrigger=PropertyChanged}"
+                Width="200"
+                Margin="0,4,0,0"/>
+            <TextBlock 
+                Text="Имя:"
+                Width="200"
+                Margin="0,4,0,0"/>
             <TextBox
-                Text="{Binding People.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding People.Name, UpdateSourceTrigger=PropertyChanged}"
+                Width="200"
+                Margin="0,4,0,0"/>
+            <TextBlock 
+                Text="Очтчестов:"
+                Width="200"
+                Margin="0,4,0,0"/>
             <TextBox
-                Text="{Binding People.Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding People.Lastname, UpdateSourceTrigger=PropertyChanged}"
+                Width="200"
+                Margin="0,4,0,0"/>
 
             <Button
                 Content="Добавить"
-                Command="{Binding AddButton}"/>
+                Command="{Binding AddButton}"
+                Margin="0,200,0,0"
+                Width="100"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
             <Button
                 Content="Удалить"
-                Command="{Binding DeleteButton}"/>
+                Command="{Binding DeleteButton}"
+                Margin="0,20,0,0" 
+                Width="100"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

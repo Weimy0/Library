@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
         mc:Ignorable="d"
-        Title="ReturnOfTheBookWindow" Height="450" Width="800">
-    <Grid>
+        Title="ReturnOfTheBookWindow" Height="250" Width="500">
+    <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.6*"/>
@@ -14,7 +14,8 @@
 
         <ListView
             ItemsSource="{Binding GetBooks, UpdateSourceTrigger=PropertyChanged}"
-            SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged}">
+            SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged}"
+            Background="AliceBlue">
             <ListView.ItemContainerStyle>
                 <Style
                     TargetType="{x:Type ListViewItem}">
@@ -49,11 +50,11 @@
 
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Gray" TargetName="Border"/>
+                                        <Setter Property="Background" Value="Green" TargetName="Border"/>
                                     </Trigger>
 
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="LightGray" TargetName="Border"/>
+                                        <Setter Property="Background" Value="Lightgreen" TargetName="Border"/>
                                     </Trigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
@@ -67,11 +68,23 @@
             Grid.Column="1">
             <ComboBox
                 ItemsSource="{Binding Peoples, UpdateSourceTrigger=PropertyChanged}"
+                Width="170"
+                Margin="0,6,0,0"
                 SelectedItem="{Binding SelectedPeople, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button
                 Content="Вернуть"
-                Command="{Binding ReturnOfTheBookButton}"/>
+                Command="{Binding ReturnOfTheBookButton}"
+                Width="100"
+                Margin="0,150,0,0"
+                Click="Button_Click"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

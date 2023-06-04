@@ -26,5 +26,10 @@ namespace Library.Views
             InitializeComponent();
             DataContext = new ReturnOfTheBookViewModel(peopleService, bookService, this, peopleBookService);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

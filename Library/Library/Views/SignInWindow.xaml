@@ -5,18 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
         mc:Ignorable="d"
-        Title="SignInWindow" Height="450" Width="800">
-    <Grid>
+        Title="SignInWindow" Height="180" Width="320">
+    <Grid Background="AliceBlue">
         <StackPanel>
+            <TextBlock 
+                Text="Login:"
+                Width="290"
+                Margin="0,5,0,0"/>
             <TextBox
-                Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
-
+                Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"
+                Width="290"
+                Margin="0,5,0,0"/>
+            <TextBlock 
+                Text="Password:"
+                Width="290"
+                Margin="0,5,0,0"/>
             <PasswordBox
-                x:Name="PasswordBox"/>
+                x:Name="PasswordBox"
+                Width="290"
+                Margin="0,5,0,0"/>
 
             <Button
                 Content="Войти"
-                Command="{Binding AuthorizationButton}"/>
+                Command="{Binding AuthorizationButton}"
+                Width="100"
+                Margin="0,20,0,0"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

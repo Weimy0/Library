@@ -5,16 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
         mc:Ignorable="d"
-        Title="TakeBookWindow" Height="450" Width="800">
-    <Grid>
+        Title="TakeBookWindow" Height="220" Width="600">
+    <Grid Background="AliceBlue">
         <StackPanel>
             <ComboBox
                 ItemsSource="{Binding Peoples, UpdateSourceTrigger=PropertyChanged}"
+                Width="560"
+                Margin="0,5,0,0"
                 SelectedItem="{Binding SelectedPeople, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button
                 Content="Взять"
-                Command="{Binding TakeBookButton}"/>
+                Command="{Binding TakeBookButton}"
+                Margin="0,120,0,0"
+                Width="100"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

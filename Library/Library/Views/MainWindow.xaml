@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="480" Width="800">
+    <Grid Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.6*"/>
@@ -14,7 +14,8 @@
 
         <StackPanel>
             <TextBox
-                Text="{Binding Searth, UpdateSourceTrigger=PropertyChanged}"/>
+                Text="{Binding Searth, UpdateSourceTrigger=PropertyChanged}"
+                Background="AliceBlue"/>
 
             <ListView
                 ItemsSource="{Binding GetBooks, UpdateSourceTrigger=PropertyChanged}"
@@ -56,11 +57,11 @@
 
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="Gray" TargetName="Border"/>
+                                            <Setter Property="Background" Value="green" TargetName="Border"/>
                                         </Trigger>
 
                                         <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="LightGray" TargetName="Border"/>
+                                            <Setter Property="Background" Value="Lightgreen" TargetName="Border"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
@@ -75,27 +76,65 @@
             Grid.Column="1">
             <ComboBox
                 ItemsSource="{Binding SortList, UpdateSourceTrigger=PropertyChanged}"
-                SelectedItem="{Binding SelectedSort, UpdateSourceTrigger=PropertyChanged}"/>
+                SelectedItem="{Binding SelectedSort, UpdateSourceTrigger=PropertyChanged}"
+                Width="290"/>
 
             <ComboBox
                 ItemsSource="{Binding FiltrList, UpdateSourceTrigger=PropertyChanged}"
-                SelectedItem="{Binding SelectedFiltr, UpdateSourceTrigger=PropertyChanged}"/>
+                SelectedItem="{Binding SelectedFiltr, UpdateSourceTrigger=PropertyChanged}"
+                Width="290"
+                Margin="0,5,0,0"/>
 
             <Button
                 Content="Взять книгу"
-                Command="{Binding TakeBookButton}"/>
+                Command="{Binding TakeBookButton}"
+                Width="100"
+                Margin="0,280,0,0"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
             <Button
                 Content="Вернуть книгу"
-                Command="{Binding ReturnOfTheBookButton}"/>
+                Command="{Binding ReturnOfTheBookButton}"
+                Width="100"
+                Margin="0,5,0,0"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button
+                Content="Люди"
+                Command="{Binding AddOrEditPeopleButton}"
+                Width="100"
+                Margin="0,5,0,0"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
             <Button
                 Content="Выйти"
-                Command="{Binding ExitButton}"/>
-            
-            <Button
-                Content="Люди"
-                Command="{Binding AddOrEditPeopleButton}"/>
+                Command="{Binding ExitButton}"
+                Width="100"
+                Margin="0,5,0,0"
+                Background="LightBlue">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>
