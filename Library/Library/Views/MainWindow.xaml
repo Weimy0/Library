@@ -12,13 +12,15 @@
             <ColumnDefinition Width="0.6*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
+        <StackPanel
+            Background="AliceBlue">
             <TextBox
                 Text="{Binding Searth, UpdateSourceTrigger=PropertyChanged}"
                 Background="AliceBlue"/>
 
             <ListView
                 ItemsSource="{Binding GetBooks, UpdateSourceTrigger=PropertyChanged}"
+                Background="AliceBlue"
                 SelectedItem="{Binding SelectedBook, UpdateSourceTrigger=PropertyChanged}">
                 <ListView.ItemContainerStyle>
                     <Style
@@ -57,11 +59,11 @@
 
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="green" TargetName="Border"/>
+                                            <Setter Property="Background" Value="Lightgreen" TargetName="Border"/>
                                         </Trigger>
 
                                         <Trigger Property="IsSelected" Value="True">
-                                            <Setter Property="Background" Value="Lightgreen" TargetName="Border"/>
+                                            <Setter Property="Background" Value="green" TargetName="Border"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
