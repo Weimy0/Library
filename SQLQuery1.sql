@@ -1,6 +1,9 @@
 Use Library
 
-
+DBCC CHECKIDENT ('[Peoples]', RESEED, 0);
+GO
+DBCC CHECKIDENT ('[Users]', RESEED, 0);
+GO
 INSERT INTO [Books](Title,DateOfPublication,Author,[Count])
 	VALUES
 	('Узорчатая парча', '1982.03.07', 'Тэру Миямото ', '25'),
@@ -11,22 +14,15 @@ INSERT INTO [Books](Title,DateOfPublication,Author,[Count])
 	('Тас', '1890.12.07', 'Анатоля Франса', '25')
 	go
 
-INSERT INTO [Peoples](Surname,[Name],Lastname,PostId)
-	Values
-	('admin','admin','admin',1),
-	('Савельева','Виктория','Степановна',2),
-	('Маслов','Николай','Александрович',2),
-	('Островский','Гордей','Константинович',2),
-	('Ульянова','Сабина','Давидова',2),
-	('Дмитриева','Сафия','Олеговна',2)
-	go
-INSERT INTO [Users]([Login],[Password],PeopleId)
-	Values
-	('admin','admin',1)
-	Go
+
+
 
 INSERT INTO [Posts](Title)
 	Values
 	('1'),
 	('2')
 go
+DBCC CHECKIDENT ('[Peoples]', RESEED, 0);
+GO
+DBCC CHECKIDENT ('[Users]', RESEED, 0);
+GO
